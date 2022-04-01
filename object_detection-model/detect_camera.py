@@ -28,7 +28,7 @@ def forFrame(frame_number, output_array, output_count):
 
 video_path = detector.detectObjectsFromVideo(
                 camera_input=camera,
-                output_file_path=os.path.join(execution_path, "camera_detected_video"),
+                output_file_path=os.path.join(execution_path, "./output_video/camera_detect"),
                 frames_per_second=20,  per_frame_function=forFrame,log_progress=True, minimum_percentage_probability=40,detection_timeout=1)
 
 
