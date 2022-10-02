@@ -1,0 +1,10 @@
+pandas  
+scikit-learn 
+matplotlib 
+jupyterlab
+pillow 
+matplotlib
+opencv-python 
+tensorflow
+pytesseract
+imutils
