@@ -318,7 +318,6 @@ class Text_detection:
         
         return text_results    
             
-
-# if __name__=="__main__":
-#     x=Text_detection()
-#     x.run_live()
+if __name__=="__main__":
+    x=Text_detection()
+    x.run_live()
