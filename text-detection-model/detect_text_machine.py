@@ -78,7 +78,7 @@ class Text_detection:
 
         if not args.get("v", False):
             print("starting live video")
-            video_stream = VideoStream(src=1).start()
+            video_stream = VideoStream(src=0).start()
             time.sleep(1)
 
         else:
