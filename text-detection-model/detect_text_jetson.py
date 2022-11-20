@@ -78,11 +78,12 @@ class Text_detection:
 
         if not args.get("v", False):
             print("starting live video")
-            video_stream = VideoStream(src="nvarguscamerasrc ! video/x-raw(memory:NVMM), " \
-	"width=(int)1920, height=(int)1080,format=(string)NV12, " \
-	"framerate=(fraction)30/1 ! nvvidconv ! video/x-raw, " \
-	"format=(string)BGRx ! videoconvert ! video/x-raw, " \
-	"format=(string)BGR ! appsink").start()
+#             video_stream = VideoStream(src="nvarguscamerasrc ! video/x-raw(memory:NVMM), " \
+# 	"width=(int)1920, height=(int)1080,format=(string)NV12, " \
+# 	"framerate=(fraction)30/1 ! nvvidconv ! video/x-raw, " \
+# 	"format=(string)BGRx ! videoconvert ! video/x-raw, " \
+# 	"format=(string)BGR ! appsink").start()
+	    video_stream = VideoStream(src=1).start()
             time.sleep(1)
 
         else:
@@ -98,7 +99,7 @@ class Text_detection:
             if videoframe is None:
                 break
 
-            videoframe = imutils.resize(videoframe, width=1000, height=1000)
+            videoframe = imutils.resize(videoframe, width=320, height=320)
             orig = videoframe.copy()
             orig_height, orig_width = orig.shape[:2]
 
