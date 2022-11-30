@@ -1,0 +1,55 @@
+#GPIO library
+import RPi.GPIO as GPIO
+
+#time library
+import time
+
+#pin Definition - check if PWM is needed
+right_haptic = 32
+left_haptic = 33
+
+
+#set up the GPIO channel
+GPIO.setmode(GPIO.BOARD)
+#remove warnings
+GPIO.setwarnings(True)
+#set both PWM pins as low output pins
+GPIO.setup(left_haptic, GPIO.OUT, initial=GPIO.LOW)
+GPIO.setup(right_haptic, GPIO.OUT, initial=GPIO.LOW)
+#assign PWM pins
+#p_right = GPIO.PWM(right_haptic, 50)
+p_left  = GPIO.PWM(left_haptic, 50)
+#start PWM pins with 0 duty cycle
+#p_right.start(0)
+p_left.start(0)
+
+print("PINS initialized! Waiting for Vibration requests From Arduino.")
+
+#function used to run the right haptic motors with the passed intensity
+def runRightHaptic(intensity):
+    #calculation used to obtain duty cycle
+    #duty_cycle = intensity * 10
+    #update duty cycle of pwm based on intensity
+    #p_right.ChangeDutyCycle(duty_cycle)
+    
+    #temp fix for PWM not working
+    if(intensity):
+        GPIO.output(right_haptic, GPIO.HIGH)
+    else:
+        GPIO.output(right_haptic, GPIO.LOW)
+
+
+#function used to run the left haptic motors with the passed intensity
+def runLeftHaptic(intensity):
+    #calculation used to obtain duty cycle
+    duty_cycle = intensity * 10
+    #update duty cycle of pwm based on intensity
+    p_r.ChangeDutyCycle(duty_cycle)
+
+runRightHaptic(2)
+runLeftHaptic(2)
+time.sleep(5)
+#p_right.stop()
+p_left.stop()
+GPIO.cleanup()
+

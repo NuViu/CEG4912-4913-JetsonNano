@@ -8,6 +8,6 @@ This repository will consist of the following:
 
     - Text to Speech service
 
-    - Lidar, camera data processing
+    - Vibration Motors service
 
-    - RF communication
+    - RF communication service
